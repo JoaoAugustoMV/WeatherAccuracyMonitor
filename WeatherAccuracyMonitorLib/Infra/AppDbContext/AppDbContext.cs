@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WeatherAccuracyMonitorBackend.Domain.Entities;
 
-namespace WeatherAccuracyMonitorBackend.Infra.AppDbContext
+namespace WeatherAccuracyMonitorLib.Infra.AppDbContext
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {

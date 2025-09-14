@@ -113,7 +113,6 @@ namespace WeatherAccuracyMonitorLib.Domain.Services
 
         public async Task<InfoCurrentWeek> GetInfoCurrentWeek()
         {
-            //DateTime now = new(2025, 8, 25, 4, 5, 6);
             DateTime now = DateTime.Now;
             DateTime max = now.AddDays(7).Date;
             InfoCurrentWeek infoCurrentWeek = new ()

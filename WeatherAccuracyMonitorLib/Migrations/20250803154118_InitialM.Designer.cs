@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using WeatherAccuracyMonitorBackend.Infra.AppDbContext;
+using WeatherAccuracyMonitorLib.Infra.AppDbContext;
 
 #nullable disable
 
 namespace WeatherAccuracyMonitorBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250803171102_ChangeValuesToDouble")]
-    partial class ChangeValuesToDouble
+    [Migration("20250803154118_InitialM")]
+    partial class InitialM
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,17 +44,17 @@ namespace WeatherAccuracyMonitorBackend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<double>("MaxTemperatureForecastMadeMinusX")
-                        .HasColumnType("double precision");
+                    b.Property<int>("MaxTemperatureForecastMadeMinusX")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("MinTemperatureForecastMadeMinusX")
-                        .HasColumnType("double precision");
+                    b.Property<int>("MinTemperatureForecastMadeMinusX")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("RealTemperatureMax")
-                        .HasColumnType("double precision");
+                    b.Property<int>("RealTemperatureMax")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("RealTemperatureMin")
-                        .HasColumnType("double precision");
+                    b.Property<int>("RealTemperatureMin")
+                        .HasColumnType("integer");
 
                     b.Property<int>("Source")
                         .HasColumnType("integer");

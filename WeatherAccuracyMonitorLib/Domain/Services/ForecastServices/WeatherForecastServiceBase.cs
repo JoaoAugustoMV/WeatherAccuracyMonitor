@@ -37,7 +37,7 @@ namespace WeatherAccuracyMonitorLib.Domain.Services.ForecastServices
                 IEnumerable<ForecastInfoDay> forecastInfoDays = await RetrieveForecasts();
                 await SaveTemperaturesPredictions(forecastInfoDays);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 logger.LogError(ex, "Error on save predictions");
             }

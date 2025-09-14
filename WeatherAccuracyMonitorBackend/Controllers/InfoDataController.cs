@@ -11,7 +11,15 @@ namespace WeatherAccuracyMonitorBackend.Controllers
         [HttpGet]
         public async Task<IEnumerable<InfoDataLine>> Get(DateTime minDate, DateTime maxDate)
         {
+            logger.LogInformation("InfoData - Get");
             return await infoDataService.GetInfo(minDate, maxDate);
+        }
+
+        [HttpGet("CurrentWeek")]        
+        public async Task<InfoCurrentWeek> GetInfoCurrentWeek()
+        {
+            logger.LogInformation("InfoData - Get");
+            return await infoDataService.GetInfoCurrentWeek();
         }
     }
 }
