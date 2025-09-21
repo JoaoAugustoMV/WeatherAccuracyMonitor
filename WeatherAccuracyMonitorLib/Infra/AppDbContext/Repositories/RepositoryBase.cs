@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using WeatherAccuracyMonitorBackend.Domain.Repositories;
 
-namespace WeatherAccuracyMonitorBackend.Infra.AppDbContext.Repositories
+namespace WeatherAccuracyMonitorLib.Infra.AppDbContext.Repositories
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
@@ -40,7 +40,7 @@ namespace WeatherAccuracyMonitorBackend.Infra.AppDbContext.Repositories
 
         public async Task<T> InsertAsync(T entity)
         {
-            EntityEntry<T> entityAdded = (await _dbSet.AddAsync(entity));
+            EntityEntry<T> entityAdded = await _dbSet.AddAsync(entity);
 
             await _appDbContext.SaveChangesAsync();
 
@@ -49,7 +49,7 @@ namespace WeatherAccuracyMonitorBackend.Infra.AppDbContext.Repositories
 
         public T Update(T entity)
         {
-            EntityEntry<T> entityAdded = (_dbSet.Update(entity));
+            EntityEntry<T> entityAdded = _dbSet.Update(entity);
 
             _appDbContext.SaveChanges();
 
