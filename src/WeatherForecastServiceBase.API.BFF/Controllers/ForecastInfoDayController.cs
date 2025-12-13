@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using WeatherAccuracyMonitor.Domain.Entities;
+using WeatherAccuracyMonitor.Domain.Services.ForecastServices;
+using WeatherAccuracyMonitorBackend.Domain.Repositories;
 
 namespace WeatherAccuracyMonitorBackend.Controllers
 {
