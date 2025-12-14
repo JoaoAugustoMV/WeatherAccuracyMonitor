@@ -1,0 +1,11 @@
+Resources:
+  FuncForecastETL:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Timeout: 900
+      MemorySize: 1024
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: .
+      # DockerTag: forecast-etl
