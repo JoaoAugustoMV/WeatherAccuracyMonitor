@@ -20,3 +20,5 @@ FROM public.ecr.aws/lambda/dotnet:8
 WORKDIR /var/task
 
 COPY --from=build /app/publish .
+
+CMD ["WeatherAccuracyMonitor.Functions.ForecastETL::WeatherAccuracyMonitor.Functions.ForecastETL.Function::FunctionHandler"]

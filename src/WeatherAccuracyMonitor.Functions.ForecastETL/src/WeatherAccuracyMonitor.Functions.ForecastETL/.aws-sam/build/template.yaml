@@ -1,0 +1,12 @@
+Resources:
+  FuncForecastETL:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Timeout: 900
+      MemorySize: 1024
+      ImageUri: funcforecastetl:latest
+    Metadata:
+      DockerContext: C:\Repositorios\VerifiClima\WeatherAccuracyMonitor\src\WeatherAccuracyMonitor.Functions.ForecastETL\src\WeatherAccuracyMonitor.Functions.ForecastETL
+      Dockerfile: Dockerfile
+      SamResourceId: FuncForecastETL

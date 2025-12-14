@@ -14,11 +14,12 @@ namespace WeatherAccuracyMonitor.Functions.ForecastETL
         /// <param name="input">The event for the Lambda function handler to process.</param>
         /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
         /// <returns></returns>
-        public Casing FunctionHandler(string input, ILambdaContext context)
+        public Casing FunctionHandler(Input input, ILambdaContext context)
         {
-            return new Casing(input.ToLower(), input.ToUpper());
+            return new Casing(input.teste.ToLower(), input.teste.ToUpper());
         }
     }
 
+    public record Input(string teste);
     public record Casing(string Lower, string Upper);
 }
