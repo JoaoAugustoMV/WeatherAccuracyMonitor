@@ -5,6 +5,12 @@ Resources:
       PackageType: Image
       Timeout: 900
       MemorySize: 1024
+      Events:
+        DailySchedule:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 12 * * ? *)
+            Enabled: true
     Metadata:
       Dockerfile: Dockerfile
       DockerContext: .
