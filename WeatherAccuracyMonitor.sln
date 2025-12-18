@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForecastETL", "ForecastETL", "{8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAccuracyMonitor.Functions.ForecastETL", "src\WeatherAccuracyMonitor.Functions.ForecastETL\src\WeatherAccuracyMonitor.Functions.ForecastETL\WeatherAccuracyMonitor.Functions.ForecastETL.csproj", "{01676D76-2777-414E-A689-F289BB7286F6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,17 +49,12 @@ Global
 		{BA9C0F56-5DFE-4C5B-8B4D-7A83F9EF3C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA9C0F56-5DFE-4C5B-8B4D-7A83F9EF3C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA9C0F56-5DFE-4C5B-8B4D-7A83F9EF3C5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01676D76-2777-414E-A689-F289BB7286F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01676D76-2777-414E-A689-F289BB7286F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01676D76-2777-414E-A689-F289BB7286F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01676D76-2777-414E-A689-F289BB7286F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0} = {4EA6B450-284E-4CD1-872E-BB36545E9F23}
-		{01676D76-2777-414E-A689-F289BB7286F6} = {8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3CB9F4F-C00D-4415-A1E1-62EB25511E1A}
