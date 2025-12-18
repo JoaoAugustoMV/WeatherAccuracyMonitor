@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForecastETL", "ForecastETL", "{8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Tests", "src\WeatherAccuracyMonitor.Functions.ForecastETL\test\HelloWorld.Test\HelloWorld.Tests.csproj", "{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "src\WeatherAccuracyMonitor.Functions.ForecastETL\src\HelloWorld\HelloWorld.csproj", "{727E5256-DF4B-0889-1200-C903BB9BC418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,12 +53,22 @@ Global
 		{BA9C0F56-5DFE-4C5B-8B4D-7A83F9EF3C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA9C0F56-5DFE-4C5B-8B4D-7A83F9EF3C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA9C0F56-5DFE-4C5B-8B4D-7A83F9EF3C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727E5256-DF4B-0889-1200-C903BB9BC418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727E5256-DF4B-0889-1200-C903BB9BC418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727E5256-DF4B-0889-1200-C903BB9BC418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727E5256-DF4B-0889-1200-C903BB9BC418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0} = {4EA6B450-284E-4CD1-872E-BB36545E9F23}
+		{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D} = {8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}
+		{727E5256-DF4B-0889-1200-C903BB9BC418} = {8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3CB9F4F-C00D-4415-A1E1-62EB25511E1A}
