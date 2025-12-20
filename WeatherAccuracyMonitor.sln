@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Tests", "src\Wea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "src\WeatherAccuracyMonitor.Functions.ForecastETL\src\HelloWorld\HelloWorld.csproj", "{727E5256-DF4B-0889-1200-C903BB9BC418}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForecastETLTester", "src\WeatherAccuracyMonitor.Functions.ForecastETL\ForecastETLTester\ForecastETLTester.csproj", "{F50D8413-BDF5-492A-A6DE-E64C6435514F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{727E5256-DF4B-0889-1200-C903BB9BC418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{727E5256-DF4B-0889-1200-C903BB9BC418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{727E5256-DF4B-0889-1200-C903BB9BC418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0} = {4EA6B450-284E-4CD1-872E-BB36545E9F23}
 		{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D} = {8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}
 		{727E5256-DF4B-0889-1200-C903BB9BC418} = {8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}
+		{F50D8413-BDF5-492A-A6DE-E64C6435514F} = {8A9102BF-AF3D-470C-90CB-CDFE7ED6F9D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3CB9F4F-C00D-4415-A1E1-62EB25511E1A}

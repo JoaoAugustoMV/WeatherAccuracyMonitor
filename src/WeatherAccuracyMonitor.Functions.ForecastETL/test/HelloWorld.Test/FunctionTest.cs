@@ -45,13 +45,6 @@ public class FunctionTest
           };
 
           var function = new Function();
-          var response = await function.FunctionHandler(request, context);
-
-          Console.WriteLine("Lambda Response: \n" + response.Body);
-          Console.WriteLine("Expected Response: \n" + expectedResponse.Body);
-
-          Assert.Equal(expectedResponse.Body, response.Body);
-          Assert.Equal(expectedResponse.Headers, response.Headers);
-          Assert.Equal(expectedResponse.StatusCode, response.StatusCode);
+          await function.FunctionHandler(context);
   }
 }

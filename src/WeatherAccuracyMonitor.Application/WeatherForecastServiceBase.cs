@@ -28,6 +28,7 @@ namespace WeatherAccuracyMonitor.Application
         {
             this.logger = logger;
             this.httpClientFactory = httpClientFactory;
+            logger.LogInformation($"WeatherForecastServiceBase - {_source.ToString()} - Initialized");
 
             URL_SAVE = configuration["BE_URL_POST"];
         }
