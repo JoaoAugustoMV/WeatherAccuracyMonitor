@@ -26,7 +26,7 @@ IServiceProvider ret = serviceCollection.BuildServiceProvider();
 
 List<Task> tasks = new List<Task>
             {
-                //ret.GetService<AdvisorForecastService>()!.ExecuteTemperaturesPredictions(),
+                ret.GetService<AdvisorForecastService>()!.ExecuteTemperaturesPredictions(),
                 ret.GetService<HGBrasilForecastService>()!.ExecuteTemperaturesPredictions()
             };
     
