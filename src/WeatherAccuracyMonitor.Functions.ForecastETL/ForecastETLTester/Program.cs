@@ -1,9 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeatherAccuracyMonitor.Data;
+using WeatherAccuracyMonitor.Data.Repositories;
 using WeatherAccuracyMonitor.Providers.ForecastSources;
+using WeatherAccuracyMonitorBackend.Domain.Repositories;
 
 Console.WriteLine("Hello, World!");
 var serviceCollection = new ServiceCollection();
@@ -17,7 +22,12 @@ var configurationBuilder = new ConfigurationBuilder()
 
 serviceCollection.AddSingleton<IConfiguration>(configurationBuilder.Build());
 
-configurationBuilder.Build();
+IConfiguration configs = configurationBuilder.Build();
+
+serviceCollection.AddDbContextFactory<AppDbContext>(options =>
+    options.UseNpgsql(configs["ConnectionStrings:Default"]));
+
+serviceCollection.AddTransient<IForecastInfoDayRepository, ForecastInfoDayRepository>();
 
 serviceCollection.AddTransient<HGBrasilForecastService>();
 serviceCollection.AddTransient<AdvisorForecastService>();
