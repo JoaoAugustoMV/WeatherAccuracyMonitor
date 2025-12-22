@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http.Json;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using WeatherAccuracyMonitor.Application;
+using WeatherAccuracyMonitor.Data;
 using WeatherAccuracyMonitor.Domain.Entities;
 using WeatherAccuracyMonitor.Domain.Enums;
 using WeatherAccuracyMonitor.Providers.SourcesResponses;
+using WeatherAccuracyMonitorBackend.Domain.Repositories;
 
 namespace WeatherAccuracyMonitor.Providers.ForecastSources
 {
@@ -15,9 +18,11 @@ namespace WeatherAccuracyMonitor.Providers.ForecastSources
 
         protected override Sources _source => Sources.ADVISOR;
 
-        public AdvisorForecastService(ILogger<AdvisorForecastService> logger, IHttpClientFactory httpClientFactory, IConfiguration configuration) : base(logger, configuration, httpClientFactory)
+        public AdvisorForecastService(ILogger<AdvisorForecastService> logger, IHttpClientFactory httpClientFactory,
+            IDbContextFactory<AppDbContext> dbConnFactory,
+            IConfiguration configuration) : base(logger, httpClientFactory, dbConnFactory)
         {
-            URL_ADVISOR = configuration["ADVISOR_URL"];
+            URL_ADVISOR = configuration["ADVISOR_URL"]!;
         }
 
         protected override async Task<IEnumerable<ForecastInfoDay>> RetrieveForecasts()

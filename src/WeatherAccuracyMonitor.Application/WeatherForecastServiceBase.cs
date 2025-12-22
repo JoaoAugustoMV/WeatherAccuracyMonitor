@@ -12,6 +12,9 @@ using System.Net.Http.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using WeatherAccuracyMonitor.Application;
+using WeatherAccuracyMonitor.Data;
+using Microsoft.EntityFrameworkCore;
+using WeatherAccuracyMonitor.Data.Repositories;
 
 namespace WeatherAccuracyMonitor.Application
 {
@@ -21,16 +24,19 @@ namespace WeatherAccuracyMonitor.Application
 
         protected readonly ILogger logger;
         protected readonly IHttpClientFactory httpClientFactory;
+       
+        private readonly IDbContextFactory<AppDbContext> dbConnFactory;
 
-        private readonly string URL_SAVE;
-
-        public WeatherForecastServiceBase(ILogger<WeatherForecastServiceBase> logger, IConfiguration configuration, IHttpClientFactory httpClientFactory)
+        public WeatherForecastServiceBase(ILogger<WeatherForecastServiceBase> logger,
+            IHttpClientFactory httpClientFactory,
+            IDbContextFactory<AppDbContext> dbConnFactory
+            )
         {
             this.logger = logger;
             this.httpClientFactory = httpClientFactory;
-            logger.LogInformation($"WeatherForecastServiceBase - {_source.ToString()} - Initialized");
+            this.dbConnFactory = dbConnFactory;
 
-            URL_SAVE = configuration["BE_URL_POST"];
+            logger.LogInformation($"WeatherForecastServiceBase - {_source.ToString()} - Initialized");
         }
 
         public async Task ExecuteTemperaturesPredictions()
@@ -50,21 +56,10 @@ namespace WeatherAccuracyMonitor.Application
         {
             try
             {
-                HttpClient client = httpClientFactory.CreateClient();                
+                using var dbContext = dbConnFactory.CreateDbContext();
 
-                string json = JsonSerializer.Serialize(forecastInfoDays);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await client.PostAsync(URL_SAVE, content);
-
-                if (response.IsSuccessStatusCode) 
-                {
-                    logger.LogInformation($"SaveTemperaturesPredictions - {_source.ToString()} - Sucess");
-                }
-                else
-                {
-                    logger.LogInformation($"SaveTemperaturesPredictions - {_source.ToString()} - Failed - {response.Content}");
-                }
+                ForecastInfoDayRepository forecastInfoDayRepository = new (dbContext);
+                await forecastInfoDayRepository.InsertAsync(forecastInfoDays);
             }
             catch (Exception ex) 
             {

@@ -13,9 +13,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\WeatherAccuracyMonitor.Data\WeatherAccuracyMonitor.Data.csproj" />
     <ProjectReference Include="..\..\WeatherAccuracyMonitor.Providers\WeatherAccuracyMonitor.Providers.csproj" />
   </ItemGroup>
 

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WeatherAccuracyMonitor.Crosscutting\WeatherAccuracyMonitor.Crosscutting.csproj" />
+    <ProjectReference Include="..\WeatherAccuracyMonitor.Data\WeatherAccuracyMonitor.Data.csproj" />
     <ProjectReference Include="..\WeatherAccuracyMonitor.Domain\WeatherAccuracyMonitor.Domain.csproj" />
   </ItemGroup>
 
