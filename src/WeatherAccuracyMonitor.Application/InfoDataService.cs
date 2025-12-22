@@ -15,7 +15,7 @@ namespace WeatherAccuracyMonitorLib.Domain.Services
 
         private static IEnumerable<string> GetColumsName()
         {            
-            DateTime todayDate = new(2025, 8, 25, 4, 5, 6);
+            DateTime todayDate = DateTime.Now;
             
             List<string> dayNames = [];
             for (int i = 0; i < 7; i++) 
