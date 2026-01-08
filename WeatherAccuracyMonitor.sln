@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForecastETL", "ForecastETL"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Tests", "src\WeatherAccuracyMonitor.Functions.ForecastETL\test\HelloWorld.Test\HelloWorld.Tests.csproj", "{0825AC7A-F321-E1A6-C0E0-1E8B9AF1B50D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForecastETL", "src\WeatherAccuracyMonitor.Functions.ForecastETL\src\HelloWorld\ForecastETL.csproj", "{727E5256-DF4B-0889-1200-C903BB9BC418}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "src\WeatherAccuracyMonitor.Functions.ForecastETL\src\HelloWorld\HelloWorld.csproj", "{727E5256-DF4B-0889-1200-C903BB9BC418}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForecastETLTester", "src\WeatherAccuracyMonitor.Functions.ForecastETL\ForecastETLTester\ForecastETLTester.csproj", "{F50D8413-BDF5-492A-A6DE-E64C6435514F}"
 EndProject
