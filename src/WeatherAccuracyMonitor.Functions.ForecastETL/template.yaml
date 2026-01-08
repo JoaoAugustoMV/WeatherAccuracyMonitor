@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  Sample SAM Template for WeatherAccuracyMonitor.Functions.ForecastETL
+  Sample SAM Template for WeatherAccuracyMonitor.Functions.HelloWorld
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -25,7 +25,7 @@ Resources:
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
           ADVISOR_URL: VALUE
-          BE_URL_POST: VALUE
+          ConnectionString: VALUE
           HGBrasil_URL: VALUE
       Events:
         DailySchedule:

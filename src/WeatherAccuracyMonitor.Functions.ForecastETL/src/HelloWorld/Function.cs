@@ -5,9 +5,11 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WeatherAccuracyMonitor.Data;
 using WeatherAccuracyMonitor.Providers.ForecastSources;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -32,6 +34,9 @@ public class Function
             IConfiguration configuration = builder.Build();
             b.AddSingleton<IConfiguration>(configuration);
             
+            b.AddDbContextFactory<AppDbContext>(options =>
+                options.UseNpgsql(configuration["ConnectionString"]));
+
             b.AddHttpClient();
             b.AddLogging();
         }).Build();
