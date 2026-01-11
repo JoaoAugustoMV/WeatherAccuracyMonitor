@@ -19,8 +19,8 @@ jobs:
         CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
       run: |        
         echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem
-        ssh-add github-ec2.pem
-        ssh -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST} '
+        
+        ssh -i "github-ec2.pem" ${USER}@${HOST} '
         echo "Current directory: $(pwd)"
         echo "Listing home directory:"
         ls -la ~
