@@ -9,19 +9,7 @@ jobs:
     environment: "Production EC2"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Configure SSH
-      run: |
-        echo "16"
-        mkdir -p ~/.ssh/
-        echo "18"
-        echo "${{ secrets.EC2_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/remote_key
-        echo "20"
-        chmod 600 ~/.ssh/remote_key
-        echo "22"
-        ssh-add ~/.ssh/remote_key
-        echo "24"
+    - uses: actions/checkout@v2        
 
     - name: Deploy to EC2
       env:
@@ -31,6 +19,7 @@ jobs:
         CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
       run: |        
         echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem
+        ssh-add github-ec2.pem
         ssh -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST} '
         echo "Current directory: $(pwd)"
         echo "Listing home directory:"
