@@ -4,13 +4,14 @@ using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using WeatherAccuracyMonitor.Application;
 using WeatherAccuracyMonitor.Application.Interfaces;
 using WeatherAccuracyMonitor.Data;
 using WeatherAccuracyMonitor.Data.Repositories;
 using WeatherAccuracyMonitor.Domain.Services.ForecastServices;
+using WeatherAccuracyMonitor.Infra.Cache;
 using WeatherAccuracyMonitorBackend.Domain.Repositories;
 using WeatherAccuracyMonitorBackend.Services;
-using WeatherAccuracyMonitorLib.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,9 @@ builder.Services.AddCors(options => options.AddPolicy("Front", c =>
 
 builder.Services.AddDbContextPool<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSingleton<ICacheService, CacheService>();
 
 builder.Services.AddScoped<IForecastInfoDayRepository, ForecastInfoDayRepository>();
 

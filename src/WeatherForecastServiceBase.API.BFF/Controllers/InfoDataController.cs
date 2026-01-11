@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WeatherAccuracyMonitor.Application.Interfaces;
 using WeatherAccuracyMonitor.Application.ValueModels.ResponsesBFF;
-using WeatherAccuracyMonitorLib.Domain.Services;
+using WeatherAccuracyMonitorBackend.Controllers;
 
-namespace WeatherAccuracyMonitorBackend.Controllers
+namespace WeatherForecastServiceBase.API.BFF.Controllers
 {
     [ApiController]
     [Route("[controller]")]

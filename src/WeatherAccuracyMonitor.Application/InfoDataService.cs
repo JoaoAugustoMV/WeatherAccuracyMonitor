@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherAccuracyMonitor.Application.Interfaces;
 using WeatherAccuracyMonitor.Application.ValueModels.ResponsesBFF;
+using WeatherAccuracyMonitor.Crosscutting.Utils;
+using WeatherAccuracyMonitor.Infra.Cache;
 using WeatherAccuracyMonitorBackend.Domain.Repositories;
-using WeatherAccuracyMonitorLib.Utils;
 
-namespace WeatherAccuracyMonitorLib.Domain.Services
+namespace WeatherAccuracyMonitor.Application
 {
-    public class InfoDataService(IForecastInfoDayRepository forecastInfoDayRepository) : IInfoDataService
+    public class InfoDataService(IForecastInfoDayRepository forecastInfoDayRepository, ICacheService cacheService) : IInfoDataService
     {
+        private const string CacheKey = "InfoCurrentWeekCacheKey";
+        private const uint CacheTtl = 3600;
 
         private static IEnumerable<string> GetColumsName()
         {            
@@ -113,13 +116,22 @@ namespace WeatherAccuracyMonitorLib.Domain.Services
 
         public async Task<InfoCurrentWeek> GetInfoCurrentWeek()
         {
+            InfoCurrentWeek? infoCurrentWeek = cacheService.Get<InfoCurrentWeek>(CacheKey);
+            if (infoCurrentWeek != null)
+            {
+                return infoCurrentWeek;
+            }
+
             DateTime now = DateTime.Now;
             DateTime max = now.AddDays(7).Date;
-            InfoCurrentWeek infoCurrentWeek = new ()
+
+            infoCurrentWeek = new ()
             {
                 ColumnsName = GetColumsName(),
                 LinesData = await GetInfo(now, max)
             };
+
+            cacheService.Set(CacheKey, infoCurrentWeek, CacheTtl);
 
             return infoCurrentWeek;
         }

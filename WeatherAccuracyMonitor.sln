@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAccuracyMonitor.Infra", "src\WeatherAccuracyMonitor.Infra\WeatherAccuracyMonitor.Infra.csproj", "{5111507A-3C30-4D23-8DAE-7BEDD2D426BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F50D8413-BDF5-492A-A6DE-E64C6435514F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5111507A-3C30-4D23-8DAE-7BEDD2D426BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5111507A-3C30-4D23-8DAE-7BEDD2D426BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5111507A-3C30-4D23-8DAE-7BEDD2D426BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5111507A-3C30-4D23-8DAE-7BEDD2D426BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
