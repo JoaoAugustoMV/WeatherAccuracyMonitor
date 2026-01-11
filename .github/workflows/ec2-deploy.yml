@@ -13,11 +13,15 @@ jobs:
     
     - name: Configure SSH
       run: |
+        echo "16"
         mkdir -p ~/.ssh/
-        # Use 'tr' to remove carriage returns (\r)
+        echo "18"
         echo "${{ secrets.EC2_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/remote_key
+        echo "20"
         chmod 600 ~/.ssh/remote_key
+        echo "22"
         ssh-add ~/.ssh/remote_key
+        echo "24"
 
     - name: Deploy to EC2
       env:
