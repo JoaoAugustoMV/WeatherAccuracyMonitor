@@ -26,7 +26,7 @@ jobs:
         HOST: ${{ secrets.EC2_HOST }}
         USER: ${{ secrets.EC2_USER }}
         CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
-      run: |                      
+      run: |                              
         wc -l github-ec2.pem || true
 
         ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST}
