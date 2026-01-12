@@ -9,16 +9,7 @@ jobs:
     environment: "Production EC2"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2        
-
-    - name: Setup SSH key
-      env:
-        KEY_B64: ${{ secrets.EC2_PRIVATE_KEY_B64 }}
-      run: |
-        echo "$KEY_B64" | base64 -d > github-ec2.pem
-        chmod 600 github-ec2.pem
-        wc -l github-ec2.pem
-
+    - uses: actions/checkout@v2
 
     - name: Deploy to EC2
       env:
@@ -27,6 +18,8 @@ jobs:
         USER: ${{ secrets.EC2_USER }}
         CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
       run: |                              
+        echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem
+
         wc -l github-ec2.pem || true
 
         ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST}
