@@ -29,7 +29,7 @@ jobs:
         
         docker pull joaoaugustomv/weather-monitor-backend
 
-        docker stop wam-back
+        docker stop wam-back || true
 
         docker run --name "wam-back" -d -p 80:8080 -e ConnectionStrings__Default=$CONNECTION_STRING joaoaugustomv/weather-monitor-backend:1.1
         '
