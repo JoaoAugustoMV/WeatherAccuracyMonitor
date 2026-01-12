@@ -34,7 +34,7 @@ jobs:
 
         echo "Running new container..."        
 
-        sudo docker run --name "wam-back" -d -p 80:8080 -e ConnectionStrings__Default="DB_CONNECTION_STRING" joaoaugustomv/weather-monitor-backend
+        sudo docker run --name "wam-back" -d -p 80:8080 -e ConnectionStrings__Default="$DB_CONNECTION_STRING" joaoaugustomv/weather-monitor-backend
         echo "Deployment completed."
         
         '
