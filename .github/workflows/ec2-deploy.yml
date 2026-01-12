@@ -38,6 +38,10 @@ jobs:
         echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem
                 
         openssl rsa -in github-ec2.pem -check
+        head -n 2 github-ec2.pem
+        tail -n 2 github-ec2.pem
+        wc -l github-ec2.pem
+
 
         ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST}
         
