@@ -16,13 +16,13 @@ jobs:
         PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
         HOST: ${{ secrets.EC2_HOST }}
         USER: ${{ secrets.EC2_USER }}
-        DB_CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+        CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
       run: |                              
         echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem        
 
         ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST} '               
         
-        set -e
+        export DB_CONNECTION_STRING='"$CONNECTION_STRING"'
 
         sudo docker pull joaoaugustomv/weather-monitor-backend
 
