@@ -39,8 +39,6 @@ jobs:
                 
         wc -l github-ec2.pem || true
 
-
-
         ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST}
         
         echo "Current directory: $(pwd)"
