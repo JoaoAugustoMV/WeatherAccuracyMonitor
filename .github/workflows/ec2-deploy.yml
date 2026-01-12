@@ -16,22 +16,24 @@ jobs:
         PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
         HOST: ${{ secrets.EC2_HOST }}
         USER: ${{ secrets.EC2_USER }}
-        CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
-      run: |                              
-        echo "$PRIVATE_KEY" > github-ec2.pem && chmod 600 github-ec2.pem        
+        DB_CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+      run: |
+        echo "$PRIVATE_KEY" > github-ec2.pem
+        chmod 600 github-ec2.pem
 
-        ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST} '               
-        
-        export DB_CONNECTION_STRING='"$CONNECTION_STRING"'
+        ssh -T -o StrictHostKeyChecking=no -i github-ec2.pem ${USER}@${HOST} << EOF
+          set -e
 
-        sudo docker pull joaoaugustomv/weather-monitor-backend
+          sudo docker pull joaoaugustomv/weather-monitor-backend
 
-        sudo docker stop wam-back || true
-        sudo docker rm wam-back || true
+          sudo docker stop wam-back || true
+          sudo docker rm wam-back || true
 
-        echo "Running new container..."        
+          sudo docker run -d \
+            --name wam-back \
+            -p 80:8080 \
+            -e ConnectionStrings__Default="${DB_CONNECTION_STRING}" \
+            joaoaugustomv/weather-monitor-backend
 
-        sudo docker run --name "wam-back" -d -p 80:8080 -e ConnectionStrings__Default="$DB_CONNECTION_STRING" joaoaugustomv/weather-monitor-backend
-        echo "Deployment completed."
-        
-        '
+          echo "Deployment completed."
+        EOF
