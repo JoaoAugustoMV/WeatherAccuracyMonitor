@@ -20,7 +20,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-        context: .
+        context: .\src\WeatherForecastServiceBase.API.BFF\
         push: true
         tags: ${{ vars.IMAGE_TAG_BACKEND}}
 
