@@ -24,6 +24,7 @@ jobs:
         file: ./src/WeatherForecastServiceBase.API.BFF/Dockerfile
         push: true
         tags: ${{ vars.IMAGE_TAG_BACKEND}}
+        platforms: linux/amd64,linux/arm64
 
     - name: Deploy to EC2
       env:
