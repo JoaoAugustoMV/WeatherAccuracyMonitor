@@ -52,7 +52,7 @@ jobs:
 
           sudo docker run -d \
             --name wam-back \
-            -p 80:8080 \
+            -p 8080:8080 \
             -e ConnectionStrings__Default="${DB_CONNECTION_STRING}" \
             joaoaugustomv/weather-monitor-backend
 
