@@ -75,4 +75,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseCors("Front");
+
+app.UsePathBase("/api");
 app.Run();
